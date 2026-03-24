@@ -127,7 +127,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task08_DistinctStudentCities()
     {
-        throw NotImplemented(nameof(Task08_DistinctStudentCities));
+        return UniversityData.Students.OrderBy(s => s.City).Select(e => e.City).Distinct();
+        // throw NotImplemented(nameof(Task08_DistinctStudentCities));
     }
 
     /// <summary>
@@ -142,6 +143,7 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task09_ThreeNewestEnrollments()
     {
+
         throw NotImplemented(nameof(Task09_ThreeNewestEnrollments));
     }
 
