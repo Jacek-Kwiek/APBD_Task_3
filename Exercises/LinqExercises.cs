@@ -143,8 +143,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task09_ThreeNewestEnrollments()
     {
-
-        throw NotImplemented(nameof(Task09_ThreeNewestEnrollments));
+        return UniversityData.Enrollments.OrderByDescending(e => e.EnrollmentDate).Select(e => $"{e.EnrollmentDate}, {e.StudentId}, {e.CourseId}").Take(3);
+        // throw NotImplemented(nameof(Task09_ThreeNewestEnrollments));
     }
 
     /// <summary>
