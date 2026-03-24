@@ -16,7 +16,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task01_StudentsFromWarsaw()
     {
-        throw NotImplemented(nameof(Task01_StudentsFromWarsaw));
+        return UniversityData.Students.Where(s => s.City == "Warsaw").Select(e => $"{e.IndexNumber}, {e.FirstName}, {e.LastName}, {e.City}").ToList();
+        // throw NotImplemented(nameof(Task01_StudentsFromWarsaw));
     }
 
     /// <summary>
