@@ -1,4 +1,5 @@
 using LinqConsoleLab.EN.Data;
+using LinqConsoleLab.EN.Models;
 
 namespace LinqConsoleLab.EN.Exercises;
 
@@ -161,7 +162,7 @@ public sealed class LinqExercises
     public IEnumerable<string> Task10_SecondPageOfCourses()
     {
         return UniversityData.Courses.OrderBy(c => c.Title).Select(c => $"{c.Title}, {c.Category}").Skip(2).Take(2);
-        throw NotImplemented(nameof(Task10_SecondPageOfCourses));
+        // throw NotImplemented(nameof(Task10_SecondPageOfCourses));
     }
 
     /// <summary>
@@ -176,7 +177,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task11_JoinStudentsWithEnrollments()
     {
-        throw NotImplemented(nameof(Task11_JoinStudentsWithEnrollments));
+        return UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => $"{s.FirstName}, {s.LastName}, {e.EnrollmentDate}");
+        // throw NotImplemented(nameof(Task11_JoinStudentsWithEnrollments));
     }
 
     /// <summary>
