@@ -97,7 +97,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task06_DoAllLecturersHaveDepartment()
     {
-        throw NotImplemented(nameof(Task06_DoAllLecturersHaveDepartment));
+        return [UniversityData.Lecturers.Count(l => !string.IsNullOrEmpty(l.Department)) == UniversityData.Lecturers.Count() ? "Yes" : "No"];
+        // throw NotImplemented(nameof(Task06_DoAllLecturersHaveDepartment));
     }
 
     /// <summary>
