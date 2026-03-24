@@ -63,7 +63,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task04_FirstAnalyticsCourse()
     {
-        throw NotImplemented(nameof(Task04_FirstAnalyticsCourse));
+        return [UniversityData.Courses.Where(c => c.Category == "Analytics").Select(s => $"{s.Title}, {s.StartDate}").FirstOrDefault() ?? "No course found in the Analytics category"];
+        // throw NotImplemented(nameof(Task04_FirstAnalyticsCourse));
     }
 
     /// <summary>
