@@ -282,7 +282,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Challenge01_StudentsWithMoreThanOneActiveCourse()
     {
-        throw NotImplemented(nameof(Challenge01_StudentsWithMoreThanOneActiveCourse));
+        return UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => new { s.FirstName, s.LastName, e.IsActive }).Where(se => se.IsActive == true).GroupBy(se => new { se.FirstName, se.LastName }).Where(se => se.Count() > 1).Select(s => $"{s.Key.FirstName}, {s.Key.LastName}, {s.Count()}");
+        // throw NotImplemented(nameof(Challenge01_StudentsWithMoreThanOneActiveCourse));
     }
 
     /// <summary>
