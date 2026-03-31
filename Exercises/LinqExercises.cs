@@ -195,7 +195,7 @@ public sealed class LinqExercises
     public IEnumerable<string> Task12_StudentCoursePairs()
     {
         return UniversityData.Enrollments.Join(UniversityData.Students, e => e.StudentId, s => s.Id, (e, s) => new { e, s }).Join(UniversityData.Courses, es => es.e.CourseId, c => c.Id, (es, c) => $"{es.s.FirstName}, {es.s.LastName}, {c.Title}");
-        //throw NotImplemented(nameof(Task12_StudentCoursePairs));
+        // throw NotImplemented(nameof(Task12_StudentCoursePairs));
     }
 
     /// <summary>
@@ -211,7 +211,7 @@ public sealed class LinqExercises
     public IEnumerable<string> Task13_GroupEnrollmentsByCourse()
     {
         return UniversityData.Enrollments.Join(UniversityData.Courses, e => e.CourseId, c => c.Id, (e, c) => new { c.Title }).GroupBy(title => title).Select(ec => $"{ec.Key}, {ec.Count()}");
-        throw NotImplemented(nameof(Task13_GroupEnrollmentsByCourse));
+        // throw NotImplemented(nameof(Task13_GroupEnrollmentsByCourse));
     }
 
     /// <summary>
@@ -229,7 +229,7 @@ public sealed class LinqExercises
     public IEnumerable<string> Task14_AverageGradePerCourse()
     {
         return UniversityData.Enrollments.Join(UniversityData.Courses, e => e.CourseId, c => c.Id, (e, c) => new { c.Title, e.FinalGrade }).Where(ec => ec.FinalGrade != null).GroupBy(ec => ec.Title).Select(s => $"{s.Key}, {s.Average(ec => ec.FinalGrade)}");
-        //throw NotImplemented(nameof(Task14_AverageGradePerCourse));
+        // throw NotImplemented(nameof(Task14_AverageGradePerCourse));
     }
 
     /// <summary>
@@ -245,7 +245,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task15_LecturersAndCourseCounts()
     {
-        throw NotImplemented(nameof(Task15_LecturersAndCourseCounts));
+        return UniversityData.Lecturers.GroupJoin(UniversityData.Courses, l => l.Id, c => c.LecturerId, (l, c) => $"{l.FirstName}, {l.LastName}, {c.Count()}");
+        // throw NotImplemented(nameof(Task15_LecturersAndCourseCounts));
     }
 
     /// <summary>
