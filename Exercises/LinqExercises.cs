@@ -263,7 +263,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task16_HighestGradePerStudent()
     {
-        throw NotImplemented(nameof(Task16_HighestGradePerStudent));
+        return UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => new { s, e.FinalGrade }).Where(se => se.FinalGrade != null).GroupBy(se => new { se.s.FirstName, se.s.LastName }).Select(s => $"{s.Key.FirstName}, {s.Key.LastName}, {s.Max(se => se.FinalGrade)}");
+        // throw NotImplemented(nameof(Task16_HighestGradePerStudent));
     }
 
     /// <summary>
